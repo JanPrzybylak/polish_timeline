@@ -1,0 +1,52 @@
+## Step 1: Set up access to the Google Sheets API
+Go to Google Cloud Console: https://console.cloud.google.com/
+
+Click "Create Project" → Name it anything you like (for example, Timeline Integration)
+
+In the left menu: "APIs & Services" → "Enable APIs and Services"
+
+Search for Google Sheets API → Click Enable
+
+Then go to: "APIs & Services" → "Credentials"
+
+Click "Create Credentials" → Choose Service account
+
+Fill out the form:
+
+Name: for example, sheet-uploader
+
+Grant access → Select "Basic → Editor"
+
+After creating, click on the service account → Go to the "Keys" tab
+
+Click "Add Key" → "Create new key" → Choose JSON
+
+Download the file — this is your private key (a JSON file).
+Save it as credentials.json.
+
+## Step 2: Share the Google Sheet with the service account
+Create a new Google Sheet: https://sheets.new
+
+Copy the spreadsheet ID — it’s the part of the URL after /d/, for example:
+
+https://docs.google.com/spreadsheets/d/**-IT MUST TO BE HERE-**/edit#gid=0
+
+In the top-right corner, click the Share (blue button)
+
+At the bottom of the pop-up, click "Share with people and groups"
+
+Paste the email from your service account’s JSON file, for example:
+
+sheet-uploader | @timeline-integration | .iam.gserviceaccount.com
+
+Make sure the access level is Editor
+
+On the right of the email, you'll see a dropdown (usually "Viewer" or "Editor")
+
+Select: Editor
+
+Click the Send button
+
+## Step 3: Run the script
+
+python upload_to_sheets.py

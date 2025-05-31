@@ -1,0 +1,62 @@
+2025-05-29 10:39:34 CEST LOG:  database system was shut down at 2025-05-28 23:08:57 CEST
+2025-05-29 10:44:34 CEST LOG:  checkpoint starting: time
+2025-05-29 10:44:34 CEST LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.108 s, sync=0.131 s, total=0.485 s; sync files=3, longest=0.066 s, average=0.044 s; distance=0 kB, estimate=0 kB; lsn=0/2A6C8C8, redo lsn=0/2A6C870
+2025-05-29 12:58:42 CEST FATAL:  database "poznan_history" does not exist
+2025-05-29 12:59:04 CEST FATAL:  database "poznan_history" does not exist
+2025-05-29 12:59:12 CEST FATAL:  database "poland_history" does not exist
+2025-05-29 13:02:49 CEST ERROR:  syntax error at or near "SELECT" at character 30
+2025-05-29 13:02:49 CEST STATEMENT:  select * FROM polish_history
+	SELECT * FROM polish_history LIMIT 10;
+2025-05-29 13:04:35 CEST LOG:  checkpoint starting: time
+2025-05-29 13:04:38 CEST LOG:  checkpoint complete: wrote 14 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=2.780 s, sync=0.714 s, total=3.707 s; sync files=15, longest=0.173 s, average=0.048 s; distance=131 kB, estimate=131 kB; lsn=0/2A939B8, redo lsn=0/2A8D690
+2025-05-29 13:09:35 CEST LOG:  checkpoint starting: time
+2025-05-29 13:09:39 CEST LOG:  checkpoint complete: wrote 25 buffers (0.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=2.668 s, sync=0.919 s, total=3.865 s; sync files=17, longest=0.191 s, average=0.055 s; distance=218 kB, estimate=218 kB; lsn=0/2AC3F48, redo lsn=0/2AC3EB8
+2025-05-29 13:14:35 CEST LOG:  checkpoint starting: time
+2025-05-29 13:14:38 CEST LOG:  checkpoint complete: wrote 17 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.774 s, sync=0.462 s, total=2.451 s; sync files=12, longest=0.080 s, average=0.039 s; distance=101 kB, estimate=206 kB; lsn=0/2AE51F0, redo lsn=0/2ADD5E8
+2025-05-29 13:15:05 CEST ERROR:  syntax error at or near "SELECT" at character 39
+2025-05-29 13:15:05 CEST STATEMENT:  SELECT * FROM polish_history LIMIT 12
+	SELECT * FROM polish_history LIMIT 12;
+2025-05-29 13:17:17 CEST ERROR:  column "polish_history" does not exist at character 82
+2025-05-29 13:17:17 CEST STATEMENT:  SELECT column_name, data_type FROM information_schema.columns WHERE table_name = polish_history;
+2025-05-29 13:17:34 CEST ERROR:  column "year" does not exist at character 82
+2025-05-29 13:17:34 CEST STATEMENT:  SELECT column_name, data_type FROM information_schema.columns WHERE table_name = year;
+2025-05-29 13:19:35 CEST LOG:  checkpoint starting: time
+2025-05-29 13:19:38 CEST LOG:  checkpoint complete: wrote 20 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=2.123 s, sync=0.658 s, total=3.025 s; sync files=7, longest=0.145 s, average=0.094 s; distance=40 kB, estimate=189 kB; lsn=0/2AE7948, redo lsn=0/2AE78B8
+2025-05-29 13:24:35 CEST LOG:  checkpoint starting: time
+2025-05-29 13:24:38 CEST LOG:  checkpoint complete: wrote 22 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=2.329 s, sync=0.740 s, total=3.325 s; sync files=21, longest=0.096 s, average=0.036 s; distance=157 kB, estimate=186 kB; lsn=0/2B0EE78, redo lsn=0/2B0EE20
+2025-05-29 13:29:35 CEST LOG:  checkpoint starting: time
+2025-05-29 13:29:39 CEST LOG:  checkpoint complete: wrote 21 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=2.213 s, sync=0.931 s, total=3.618 s; sync files=15, longest=0.125 s, average=0.063 s; distance=108 kB, estimate=178 kB; lsn=0/2B29F08, redo lsn=0/2B29EB0
+2025-05-29 13:34:35 CEST LOG:  checkpoint starting: time
+2025-05-29 13:34:38 CEST LOG:  checkpoint complete: wrote 21 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=2.221 s, sync=0.707 s, total=3.186 s; sync files=15, longest=0.115 s, average=0.048 s; distance=112 kB, estimate=172 kB; lsn=0/2B46080, redo lsn=0/2B46028
+2025-05-29 13:39:35 CEST LOG:  checkpoint starting: time
+2025-05-29 13:39:38 CEST LOG:  checkpoint complete: wrote 21 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=2.216 s, sync=0.695 s, total=3.566 s; sync files=15, longest=0.094 s, average=0.047 s; distance=111 kB, estimate=166 kB; lsn=0/2B61E20, redo lsn=0/2B61DC8
+2025-05-29 13:39:49 CEST ERROR:  syntax error at or near "chcp" at character 1
+2025-05-29 13:39:49 CEST STATEMENT:  chcp 65001
+	TRUNCATE TABLE polish_history RESTART IDENTITY;
+2025-05-29 13:41:58 CEST ERROR:  syntax error at or near "chcp" at character 1
+2025-05-29 13:41:58 CEST STATEMENT:  chcp 65001
+	SELECT * FROM polish_history LIMIT 10;
+2025-05-29 13:44:35 CEST LOG:  checkpoint starting: time
+2025-05-29 13:44:39 CEST LOG:  checkpoint complete: wrote 21 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=2.225 s, sync=0.794 s, total=3.268 s; sync files=15, longest=0.244 s, average=0.053 s; distance=117 kB, estimate=161 kB; lsn=0/2B7F358, redo lsn=0/2B7F300
+2025-05-29 13:54:35 CEST LOG:  checkpoint starting: time
+2025-05-29 13:54:36 CEST LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.335 s, sync=0.089 s, total=0.999 s; sync files=1, longest=0.089 s, average=0.089 s; distance=5 kB, estimate=145 kB; lsn=0/2B80B30, redo lsn=0/2B80AA0
+2025-05-29 14:11:09 CEST ERROR:  syntax error at or near "=" at character 40
+2025-05-29 14:11:09 CEST STATEMENT:  SELECT * FROM polish_historyWHERE city = 'Poznan'LIMIT 10;
+2025-05-29 14:11:12 CEST ERROR:  syntax error at or near "=" at character 40
+2025-05-29 14:11:12 CEST STATEMENT:  SELECT * FROM polish_historyWHERE city = 'Poznan'LIMIT 10;
+2025-05-29 14:24:35 CEST LOG:  checkpoint starting: time
+2025-05-29 14:24:40 CEST LOG:  checkpoint complete: wrote 33 buffers (0.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=3.580 s, sync=1.093 s, total=4.953 s; sync files=23, longest=0.133 s, average=0.048 s; distance=183 kB, estimate=183 kB; lsn=0/2BAEAF0, redo lsn=0/2BAEA98
+2025-05-29 18:34:35 CEST LOG:  checkpoint starting: time
+2025-05-29 18:34:38 CEST LOG:  checkpoint complete: wrote 21 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=2.189 s, sync=0.450 s, total=2.748 s; sync files=15, longest=0.052 s, average=0.030 s; distance=115 kB, estimate=177 kB; lsn=0/2BCB820, redo lsn=0/2BCB790
+2025-05-29 18:44:35 CEST LOG:  checkpoint starting: time
+2025-05-29 18:44:39 CEST LOG:  checkpoint complete: wrote 21 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=2.277 s, sync=1.190 s, total=3.724 s; sync files=15, longest=0.171 s, average=0.080 s; distance=116 kB, estimate=171 kB; lsn=0/2BE8888, redo lsn=0/2BE8830
+2025-05-29 18:49:35 CEST LOG:  checkpoint starting: time
+2025-05-29 18:49:37 CEST LOG:  checkpoint complete: wrote 16 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.651 s, sync=0.548 s, total=2.472 s; sync files=12, longest=0.087 s, average=0.046 s; distance=92 kB, estimate=163 kB; lsn=0/2BFFA78, redo lsn=0/2BFF9E8
+2025-05-29 18:54:35 CEST LOG:  checkpoint starting: time
+2025-05-29 18:54:37 CEST LOG:  checkpoint complete: wrote 15 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.543 s, sync=0.565 s, total=2.319 s; sync files=7, longest=0.122 s, average=0.081 s; distance=41 kB, estimate=151 kB; lsn=0/2C0A0A0, redo lsn=0/2C0A048
+2025-05-29 20:29:12 CEST LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-05-29 23:27:18 CEST ERROR:  canceling statement due to user request
+2025-05-29 23:27:18 CEST LOG:  shutting down
+2025-05-29 23:27:18 CEST LOG:  checkpoint starting: shutdown immediate
+2025-05-29 23:27:18 CEST LOG:  checkpoint complete: wrote 0 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.001 s, sync=0.001 s, total=0.293 s; sync files=0, longest=0.000 s, average=0.000 s; distance=0 kB, estimate=135 kB; lsn=0/2C0A150, redo lsn=0/2C0A150

@@ -1,0 +1,40 @@
+services:
+  db:
+    image: postgres:17
+    container_name: postgres_container
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: wwe123
+      POSTGRES_DB: history_db
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  app:
+    build: .
+    container_name: big_data_app
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - .:/app
+    environment:
+      - GOOGLE_APPLICATION_CREDENTIALS=/app/google_sheet/credentials.json
+    ports:
+      - "5000:5000"
+    command: >
+      bash -c "
+        echo 'Waiting for DB to be ready...' &&
+        sleep 5 &&
+        python auto_scrape_and_import.py &&
+        python timeline/app.py
+      "
+
+volumes:
+  pgdata:

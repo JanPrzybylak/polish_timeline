@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Historical Timeline</title>
+    <script
+      src="https://unpkg.com/vis-timeline@latest/standalone/umd/vis-timeline-graph2d.min.js"
+      defer
+    ></script>
+    <link
+      href="https://unpkg.com/vis-timeline@latest/styles/vis-timeline-graph2d.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <style>
+      #visualization {
+        width: 100%;
+        height: 600px;
+        border: 1px solid lightgray;
+      }
+
+      /* Category styles */
+      .vis-item.war {
+        background-color: #ffaaaa;
+        border-color: #aa0000;
+      }
+      .vis-item.science {
+        background-color: #aaddff;
+        border-color: #0055aa;
+      }
+      .vis-item.culture {
+        background-color: #ffe4b5;
+        border-color: #cc7700;
+      }
+      .vis-item.sports {
+        background-color: #c4ffc4;
+        border-color: #228822;
+      }
+      .vis-item.religion {
+        background-color: #e0bbff;
+        border-color: #7700cc;
+      }
+      .vis-item.politics {
+        background-color: #cccccc;
+        border-color: #555555;
+      }
+      .vis-item.other {
+        background-color: #f0f0f0;
+        border-color: #999999;
+      }
+
+      /* Dot indicator on timeline items */
+      .vis-item.has-dot::after {
+        content: "";
+        position: absolute;
+        bottom: -6px;
+        left: 0;
+        transform: translateY(100%);
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        z-index: 10;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Timeline of Polish History</h2>
+
+    <div style="margin-bottom: 1rem">
+      <label for="city-select">Select City: </label>
+      <select id="city-select">
+        <option value="poznan">Poznan</option>
+        <option value="warsaw">Warsaw</option>
+      </select>
+      <button id="export-csv" style="margin-left: 1rem">Export CSV</button>
+    </div>
+
+    <div id="category-filters" style="margin-bottom: 1rem"></div>
+    <div id="visualization"></div>
+
+    <script>
+      // Global variables
+      let timeline;
+      let allItems = [];
+      let allGroups = [];
+
+      // Maps category to a color for dot styling
+      function getCategoryColor(category) {
+        const colors = {
+          war: "#aa0000",
+          science: "#0055aa",
+          culture: "#cc7700",
+          sports: "#228822",
+          religion: "#7700cc",
+          politics: "#555555",
+          other: "#999999",
+        };
+        return colors[category] || colors.other;
+      }
+
+      // Exports filtered timeline items to CSV file
+      function exportToCSV(items) {
+        if (!items.length) {
+          alert("No data to export.");
+          return;
+        }
+
+        const headers = ["id", "content", "start", "end", "group"];
+        const csvRows = [headers.join(",")];
+
+        items.forEach((item) => {
+          const row = headers.map((field) => {
+            let val = item[field] ?? "";
+            if (typeof val === "object") val = JSON.stringify(val);
+            val = val.toString().replace(/"/g, '""');
+            return `"${val}"`;
+          });
+          csvRows.push(row.join(","));
+        });
+
+        const csvString = csvRows.join("\n");
+        const blob = new Blob([csvString], { type: "text/csv" });
+        const url = URL.createObjectURL(blob);
+
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "timeline_export.csv";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      }
+
+      // Loads events from API and initializes timeline
+      function loadEvents(city) {
+        fetch(
+          `/api/events?city=${city.charAt(0).toUpperCase() + city.slice(1)}`
+        )
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return response.json();
+          })
+          .then((events) => {
+            // Extract unique categories
+            const uniqueCategories = [
+              ...new Set(events.map((e) => e.category || "other")),
+            ];
+
+            allGroups = uniqueCategories.map((cat) => ({
+              id: cat,
+              content: cat.charAt(0).toUpperCase() + cat.slice(1),
+            }));
+
+            allItems = [];
+
+            events.forEach((event, index) => {
+              if (!event.year) return;
+
+              const years = event.year
+                .toString()
+                .split(/[–-]/)
+                .map((y) => parseInt(y.trim()));
+              const startYear = years[0];
+              const endYear = years[1];
+
+              const startDate = isNaN(startYear)
+                ? "2000-01-01"
+                : `${startYear}-01-01`;
+              const endDate = isNaN(endYear) ? undefined : `${endYear}-12-31`;
+
+              const category = event.category || "other";
+              const color = getCategoryColor(category);
+
+              const item = {
+                id: `main-${index}`,
+                content:
+                  event.description.length > 50
+                    ? event.description.slice(0, 50) + "…"
+                    : event.description,
+                full: event.description,
+                title: event.description,
+                start: startDate,
+                group: category,
+                className: `has-dot ${category}`,
+                type: endDate ? "range" : "box",
+                ...(endDate && {
+                  end: endDate,
+                  style: `--dot-color: ${color};`,
+                }),
+              };
+
+              allItems.push(item);
+
+              // Add a dot helper item for ranged events
+              if (endDate) {
+                allItems.push({
+                  id: `dot-${index}`,
+                  content: "",
+                  start: startDate,
+                  type: "box",
+                  group: category,
+                  className: "dot-helper",
+                  style: `width: 0; height: 0; border: none; --dot-color: ${color};`,
+                });
+              }
+            });
+
+            const container = document.getElementById("visualization");
+            if (timeline) {
+              timeline.destroy();
+            }
+
+            const options = {
+              stack: false,
+              zoomable: true,
+              horizontalScroll: true,
+              verticalScroll: true,
+              zoomMin: 1000 * 60 * 60 * 24 * 30 * 3, // Minimum zoom: ~3 months
+            };
+
+            timeline = new vis.Timeline(container, allItems, options);
+            timeline.setGroups(allGroups);
+
+            // Toggle expanded content on item select
+            timeline.on("select", (props) => {
+              const selectedId = props.items[0];
+              if (!selectedId) return;
+
+              const selectedItem = allItems.find(
+                (item) => item.id === selectedId
+              );
+              if (!selectedItem) return;
+
+              const current = timeline.itemsData.get(selectedId);
+              const isExpanded = current.content === selectedItem.full;
+
+              timeline.itemsData.update({
+                id: selectedId,
+                content: isExpanded
+                  ? selectedItem.full.slice(0, 50) + "…"
+                  : selectedItem.full,
+              });
+            });
+
+            renderCategoryFilters();
+          })
+          .catch((error) => {
+            console.error("Error loading events:", error);
+            alert("Failed to load events. Please try again later.");
+          });
+      }
+
+      // Render category filter checkboxes dynamically
+      function renderCategoryFilters() {
+        const filterContainer = document.getElementById("category-filters");
+        filterContainer.innerHTML = "";
+
+        allGroups.forEach((group) => {
+          const label = document.createElement("label");
+          label.style.marginRight = "1rem";
+
+          const checkbox = document.createElement("input");
+          checkbox.type = "checkbox";
+          checkbox.checked = true;
+          checkbox.value = group.id;
+          checkbox.addEventListener("change", updateTimeline);
+
+          label.appendChild(checkbox);
+          label.append(` ${group.content}`);
+
+          filterContainer.appendChild(label);
+        });
+
+        updateTimeline();
+      }
+
+      // Update timeline to show only selected categories
+      function updateTimeline() {
+        const checkedGroups = Array.from(
+          document.querySelectorAll("#category-filters input:checked")
+        ).map((cb) => cb.value);
+
+        const filteredItems = allItems.filter((item) =>
+          checkedGroups.includes(item.group)
+        );
+        const filteredGroups = allGroups.filter((group) =>
+          checkedGroups.includes(group.id)
+        );
+
+        timeline.setItems(filteredItems);
+        timeline.setGroups(filteredGroups);
+      }
+
+      // Initialize page with default city and event handlers
+      document.addEventListener("DOMContentLoaded", () => {
+        const defaultCity = "poznan";
+
+        const citySelect = document.getElementById("city-select");
+        citySelect.value = defaultCity;
+        loadEvents(defaultCity);
+
+        citySelect.addEventListener("change", (e) =>
+          loadEvents(e.target.value)
+        );
+
+        document.getElementById("export-csv").addEventListener("click", () => {
+          const visibleItems = timeline.itemsData.get({
+            filter: (item) => {
+              const checkedGroups = Array.from(
+                document.querySelectorAll("#category-filters input:checked")
+              ).map((cb) => cb.value);
+              return checkedGroups.includes(item.group);
+            },
+          });
+
+          exportToCSV(visibleItems);
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+Prerequisites
+
+    Docker and Docker Compose installed on their machine.
+
+Setup Steps
+
+    Clone or extract the project:
+
+git clone <repository_url>
+cd <project_folder>
+
+
+Add Google Sheets API Credentials:
+
+    Follow the Google Sheets API Setup instructions (see other txt)
+
+    Place the downloaded credentials.json in the google_sheet/ folder.
+
+Build and run the Docker containers:
+
+docker-compose up --build
+
+This command will:
+
+    Build the Docker images
+
+    Launch PostgreSQL and the application containers
+
+    Automatically run scrapers, importers, and start the Flask app
+
+Access the web app:
+
+Open a web browser and go to:
+
+http://localhost:5000
+
+
+Troubleshooting Tips
+
+    If the app fails to connect to the database, ensure Docker containers are running and healthy.
+
+    If the web page fails to load, verify that the Flask app is running and listening on the correct port.
+
+    Confirm the credentials.json file is correctly placed and valid.
+
+    Ensure the Google Sheet is shared with the service account email.
+
+Contact
+
+For any questions or issues, feel free to contact me.

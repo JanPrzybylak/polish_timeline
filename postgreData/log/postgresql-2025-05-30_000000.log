@@ -1,0 +1,28 @@
+2025-05-30 10:04:21 CEST LOG:  checkpoint starting: time
+2025-05-30 10:04:26 CEST LOG:  checkpoint complete: wrote 28 buffers (0.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=2.946 s, sync=1.074 s, total=4.490 s; sync files=10, longest=0.281 s, average=0.108 s; distance=169 kB, estimate=169 kB; lsn=0/2C34698, redo lsn=0/2C34608
+2025-05-30 10:09:21 CEST LOG:  checkpoint starting: time
+2025-05-30 10:09:25 CEST LOG:  checkpoint complete: wrote 29 buffers (0.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=3.061 s, sync=1.093 s, total=4.554 s; sync files=15, longest=0.309 s, average=0.073 s; distance=155 kB, estimate=167 kB; lsn=0/2C5B388, redo lsn=0/2C5B2F8
+2025-05-30 10:14:21 CEST LOG:  checkpoint starting: time
+2025-05-30 10:14:23 CEST LOG:  checkpoint complete: wrote 6 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.553 s, sync=0.451 s, total=1.672 s; sync files=10, longest=0.101 s, average=0.046 s; distance=21 kB, estimate=153 kB; lsn=0/2C60AF0, redo lsn=0/2C60A98
+2025-05-30 10:19:21 CEST LOG:  checkpoint starting: time
+2025-05-30 10:19:26 CEST LOG:  checkpoint complete: wrote 31 buffers (0.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=3.433 s, sync=1.646 s, total=5.323 s; sync files=37, longest=0.258 s, average=0.045 s; distance=398 kB, estimate=398 kB; lsn=0/2CDECE8, redo lsn=0/2CC4570
+2025-05-30 10:24:21 CEST LOG:  checkpoint starting: time
+2025-05-30 10:24:25 CEST LOG:  checkpoint complete: wrote 27 buffers (0.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=2.879 s, sync=0.437 s, total=3.401 s; sync files=42, longest=0.069 s, average=0.011 s; distance=387 kB, estimate=397 kB; lsn=0/2D25430, redo lsn=0/2D253D8
+2025-05-30 10:44:21 CEST LOG:  checkpoint starting: time
+2025-05-30 10:44:24 CEST LOG:  checkpoint complete: wrote 22 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=2.286 s, sync=0.876 s, total=3.401 s; sync files=15, longest=0.128 s, average=0.059 s; distance=123 kB, estimate=370 kB; lsn=0/2D44388, redo lsn=0/2D44330
+2025-05-30 11:15:11 CEST LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-05-30 19:03:27 CEST FATAL:  password authentication failed for user "history_db"
+2025-05-30 19:03:27 CEST DETAIL:  Role "history_db" does not exist.
+	Connection matched file "D:/BIGDATAPROJECTJS/postgreData/pg_hba.conf" line 117: "host    all             all             ::1/128                 scram-sha-256"
+2025-05-30 19:03:32 CEST FATAL:  password authentication failed for user "history_db"
+2025-05-30 19:03:32 CEST DETAIL:  Role "history_db" does not exist.
+	Connection matched file "D:/BIGDATAPROJECTJS/postgreData/pg_hba.conf" line 117: "host    all             all             ::1/128                 scram-sha-256"
+2025-05-30 19:06:31 CEST LOG:  checkpoint starting: time
+2025-05-30 19:06:34 CEST LOG:  checkpoint complete: wrote 21 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=2.207 s, sync=0.436 s, total=3.068 s; sync files=15, longest=0.079 s, average=0.030 s; distance=125 kB, estimate=345 kB; lsn=0/2D639C8, redo lsn=0/2D63970
+2025-05-30 19:07:44 CEST ERROR:  column "description" does not exist at character 12
+2025-05-30 19:07:44 CEST STATEMENT:  SELECT id, description, category FROM polish_history WHERE category IS NOT NULL;
+2025-05-30 19:11:31 CEST LOG:  checkpoint starting: time
+2025-05-30 19:11:35 CEST LOG:  checkpoint complete: wrote 29 buffers (0.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=3.098 s, sync=0.523 s, total=4.046 s; sync files=10, longest=0.156 s, average=0.053 s; distance=191 kB, estimate=330 kB; lsn=0/2D93788, redo lsn=0/2D93730
+2025-05-31 01:25:08 CEST LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	

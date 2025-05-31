@@ -1,0 +1,93 @@
+2025-05-27 10:47:09 CEST LOG:  database system was shut down at 2025-05-27 10:46:27 CEST
+2025-05-27 10:52:09 CEST LOG:  checkpoint starting: time
+2025-05-27 10:52:14 CEST LOG:  checkpoint complete: wrote 45 buffers (0.3%); 0 WAL file(s) added, 0 removed, 0 recycled; write=4.531 s, sync=0.370 s, total=5.081 s; sync files=11, longest=0.053 s, average=0.034 s; distance=269 kB, estimate=269 kB; lsn=0/15AC4B0, redo lsn=0/15AC458
+2025-05-28 09:52:58 CEST FATAL:  database "warsaw_history" does not exist
+2025-05-28 09:53:54 CEST FATAL:  database "warsaw_history" does not exist
+2025-05-28 09:54:40 CEST LOG:  checkpoint starting: time
+2025-05-28 09:54:52 CEST LOG:  checkpoint complete: wrote 985 buffers (6.0%); 1 WAL file(s) added, 0 removed, 0 recycled; write=5.182 s, sync=6.904 s, total=12.512 s; sync files=300, longest=0.076 s, average=0.024 s; distance=9041 kB, estimate=9041 kB; lsn=0/1E81040, redo lsn=0/1E80B40
+2025-05-28 09:54:52 CEST LOG:  checkpoint starting: immediate force wait
+2025-05-28 09:54:53 CEST LOG:  checkpoint complete: wrote 1 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.002 s, sync=0.037 s, total=0.352 s; sync files=1, longest=0.037 s, average=0.037 s; distance=1 kB, estimate=8137 kB; lsn=0/1E81110, redo lsn=0/1E810B8
+2025-05-28 09:59:52 CEST LOG:  checkpoint starting: time
+2025-05-28 10:01:42 CEST LOG:  checkpoint complete: wrote 969 buffers (5.9%); 0 WAL file(s) added, 0 removed, 1 recycled; write=105.921 s, sync=4.198 s, total=110.234 s; sync files=306, longest=0.095 s, average=0.014 s; distance=4546 kB, estimate=7778 kB; lsn=0/2300E00, redo lsn=0/22F1990
+2025-05-28 10:09:52 CEST LOG:  checkpoint starting: time
+2025-05-28 10:11:43 CEST LOG:  checkpoint complete: wrote 979 buffers (6.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=106.664 s, sync=4.520 s, total=111.279 s; sync files=310, longest=0.084 s, average=0.015 s; distance=4592 kB, estimate=7459 kB; lsn=0/2794898, redo lsn=0/276DD78
+2025-05-28 10:34:52 CEST LOG:  checkpoint starting: time
+2025-05-28 10:34:58 CEST LOG:  checkpoint complete: wrote 46 buffers (0.3%); 0 WAL file(s) added, 0 removed, 0 recycled; write=4.910 s, sync=1.071 s, total=6.069 s; sync files=36, longest=0.051 s, average=0.030 s; distance=155 kB, estimate=6729 kB; lsn=0/2794A48, redo lsn=0/27949B8
+2025-05-28 10:53:43 CEST ERROR:  invalid input syntax for type integer: "1556–1557" at character 101
+2025-05-28 10:53:43 CEST STATEMENT:  
+	            INSERT INTO polish_history (city, year, event, category)
+	            VALUES ('Warsaw', '1556–1557', '1556–1557 - Sejm of the Kingdom of Poland held in Warsaw. [ 4 ]', 'war')
+	            
+2025-05-28 10:54:52 CEST LOG:  checkpoint starting: time
+2025-05-28 10:54:53 CEST LOG:  checkpoint complete: wrote 6 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.548 s, sync=0.184 s, total=0.823 s; sync files=5, longest=0.115 s, average=0.037 s; distance=1 kB, estimate=6056 kB; lsn=0/2794FF8, redo lsn=0/2794FA0
+2025-05-28 10:59:52 CEST LOG:  checkpoint starting: time
+2025-05-28 10:59:58 CEST LOG:  checkpoint complete: wrote 45 buffers (0.3%); 0 WAL file(s) added, 0 removed, 0 recycled; write=4.798 s, sync=0.916 s, total=5.790 s; sync files=31, longest=0.052 s, average=0.030 s; distance=225 kB, estimate=5473 kB; lsn=0/27CD628, redo lsn=0/27CD5D0
+2025-05-28 11:04:52 CEST LOG:  checkpoint starting: time
+2025-05-28 11:04:53 CEST LOG:  checkpoint complete: wrote 5 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.443 s, sync=0.134 s, total=0.671 s; sync files=5, longest=0.040 s, average=0.027 s; distance=19 kB, estimate=4928 kB; lsn=0/27D2330, redo lsn=0/27D22D8
+2025-05-28 11:09:52 CEST LOG:  checkpoint starting: time
+2025-05-28 11:09:55 CEST LOG:  checkpoint complete: wrote 26 buffers (0.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=2.726 s, sync=0.348 s, total=3.165 s; sync files=12, longest=0.054 s, average=0.029 s; distance=138 kB, estimate=4449 kB; lsn=0/27F4CA8, redo lsn=0/27F4C18
+2025-05-28 11:24:52 CEST LOG:  checkpoint starting: time
+2025-05-28 11:24:55 CEST LOG:  checkpoint complete: wrote 21 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=2.189 s, sync=0.389 s, total=2.667 s; sync files=16, longest=0.041 s, average=0.025 s; distance=96 kB, estimate=4013 kB; lsn=0/280CF60, redo lsn=0/280CF08
+2025-05-28 11:29:52 CEST LOG:  checkpoint starting: time
+2025-05-28 11:29:57 CEST LOG:  checkpoint complete: wrote 44 buffers (0.3%); 0 WAL file(s) added, 0 removed, 0 recycled; write=4.772 s, sync=0.334 s, total=5.199 s; sync files=33, longest=0.050 s, average=0.011 s; distance=304 kB, estimate=3642 kB; lsn=0/2859058, redo lsn=0/2859000
+2025-05-28 11:39:52 CEST LOG:  checkpoint starting: time
+2025-05-28 11:39:54 CEST LOG:  checkpoint complete: wrote 18 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.859 s, sync=0.293 s, total=2.254 s; sync files=13, longest=0.039 s, average=0.023 s; distance=101 kB, estimate=3288 kB; lsn=0/2872588, redo lsn=0/2872530
+2025-05-28 11:44:52 CEST LOG:  checkpoint starting: time
+2025-05-28 11:44:54 CEST LOG:  checkpoint complete: wrote 14 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.425 s, sync=0.147 s, total=1.742 s; sync files=7, longest=0.032 s, average=0.021 s; distance=27 kB, estimate=2962 kB; lsn=0/28793E8, redo lsn=0/2879390
+2025-05-28 11:49:52 CEST LOG:  checkpoint starting: time
+2025-05-28 11:49:54 CEST LOG:  checkpoint complete: wrote 20 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=2.117 s, sync=0.472 s, total=2.685 s; sync files=14, longest=0.146 s, average=0.034 s; distance=117 kB, estimate=2678 kB; lsn=0/2896960, redo lsn=0/28968D0
+2025-05-28 11:54:52 CEST LOG:  checkpoint starting: time
+2025-05-28 11:54:57 CEST LOG:  checkpoint complete: wrote 36 buffers (0.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=3.854 s, sync=0.710 s, total=4.662 s; sync files=25, longest=0.044 s, average=0.029 s; distance=220 kB, estimate=2432 kB; lsn=0/28CDBD0, redo lsn=0/28CDB78
+2025-05-28 11:59:52 CEST LOG:  checkpoint starting: time
+2025-05-28 11:59:56 CEST LOG:  checkpoint complete: wrote 11 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.134 s, sync=2.442 s, total=4.181 s; sync files=22, longest=0.290 s, average=0.111 s; distance=203 kB, estimate=2209 kB; lsn=0/2900950, redo lsn=0/29008F8
+2025-05-28 12:00:37 CEST ERROR:  character with byte sequence 0xc5 0x82 in encoding "UTF8" has no equivalent in encoding "WIN1252"
+2025-05-28 12:00:37 CEST STATEMENT:  SELECT * FROM polish_history LIMIT 40;
+2025-05-28 12:00:50 CEST ERROR:  character with byte sequence 0xc5 0x82 in encoding "UTF8" has no equivalent in encoding "WIN1252"
+2025-05-28 12:00:50 CEST STATEMENT:  SELECT * FROM polish_history LIMIT 30;
+2025-05-28 12:04:52 CEST LOG:  checkpoint starting: time
+2025-05-28 12:04:55 CEST LOG:  checkpoint complete: wrote 24 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=2.523 s, sync=0.463 s, total=3.094 s; sync files=19, longest=0.052 s, average=0.025 s; distance=205 kB, estimate=2009 kB; lsn=0/2933E48, redo lsn=0/2933DF0
+2025-05-28 12:07:25 CEST ERROR:  trailing junk after numeric literal at or near "3clclear" at character 36
+2025-05-28 12:07:25 CEST STATEMENT:  SELECT * FROM polish_history LIMIT 3clclear
+	clear
+	clean
+	TRUNCATE TABLE polish_history RESTART IDENTITY CASCADE;
+2025-05-28 12:07:55 CEST ERROR:  syntax error at or near "clear" at character 1
+2025-05-28 12:07:55 CEST STATEMENT:  clear
+	SELECT * FROM polish_history LIMIT 30;
+2025-05-28 12:08:06 CEST LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-05-28 12:08:44 CEST FATAL:  password authentication failed for user "polish_history"
+2025-05-28 12:08:44 CEST DETAIL:  Role "polish_history" does not exist.
+	Connection matched file "D:/BIGDATAPROJECTJS/postgreData/pg_hba.conf" line 117: "host    all             all             ::1/128                 scram-sha-256"
+2025-05-28 12:08:49 CEST FATAL:  password authentication failed for user "polish_history"
+2025-05-28 12:08:49 CEST DETAIL:  Role "polish_history" does not exist.
+	Connection matched file "D:/BIGDATAPROJECTJS/postgreData/pg_hba.conf" line 117: "host    all             all             ::1/128                 scram-sha-256"
+2025-05-28 12:09:03 CEST FATAL:  password authentication failed for user "history_db"
+2025-05-28 12:09:03 CEST DETAIL:  Role "history_db" does not exist.
+	Connection matched file "D:/BIGDATAPROJECTJS/postgreData/pg_hba.conf" line 117: "host    all             all             ::1/128                 scram-sha-256"
+2025-05-28 12:09:52 CEST LOG:  checkpoint starting: time
+2025-05-28 12:09:55 CEST LOG:  checkpoint complete: wrote 20 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=2.092 s, sync=0.336 s, total=2.516 s; sync files=19, longest=0.039 s, average=0.018 s; distance=128 kB, estimate=1820 kB; lsn=0/2953F30, redo lsn=0/2953EA0
+2025-05-28 12:14:52 CEST LOG:  checkpoint starting: time
+2025-05-28 12:14:52 CEST LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.326 s, sync=0.050 s, total=0.452 s; sync files=2, longest=0.030 s, average=0.025 s; distance=10 kB, estimate=1639 kB; lsn=0/2956858, redo lsn=0/2956800
+2025-05-28 12:19:52 CEST LOG:  checkpoint starting: time
+2025-05-28 12:19:55 CEST LOG:  checkpoint complete: wrote 17 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.737 s, sync=0.267 s, total=2.103 s; sync files=17, longest=0.037 s, average=0.016 s; distance=98 kB, estimate=1485 kB; lsn=0/296F100, redo lsn=0/296F0A8
+2025-05-28 12:24:52 CEST LOG:  checkpoint starting: time
+2025-05-28 12:24:54 CEST LOG:  checkpoint complete: wrote 20 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=2.078 s, sync=0.340 s, total=2.574 s; sync files=11, longest=0.050 s, average=0.031 s; distance=135 kB, estimate=1350 kB; lsn=0/2990D70, redo lsn=0/2990D18
+2025-05-28 12:26:55 CEST ERROR:  character with byte sequence 0xc5 0x82 in encoding "UTF8" has no equivalent in encoding "WIN1252"
+2025-05-28 12:26:55 CEST STATEMENT:  SELECT * FROM polish_history LIMIT 15;
+2025-05-28 12:27:09 CEST ERROR:  character with byte sequence 0xc5 0x82 in encoding "UTF8" has no equivalent in encoding "WIN1252"
+2025-05-28 12:27:09 CEST STATEMENT:  SELECT * FROM polish_history LIMIT 15;
+2025-05-28 12:27:36 CEST ERROR:  character with byte sequence 0xc5 0x82 in encoding "UTF8" has no equivalent in encoding "WIN1252"
+2025-05-28 12:27:36 CEST STATEMENT:  SELECT * FROM polish_history LIMIT 15;
+2025-05-28 12:27:49 CEST ERROR:  character with byte sequence 0xc5 0x82 in encoding "UTF8" has no equivalent in encoding "WIN1252"
+2025-05-28 12:27:49 CEST STATEMENT:  SELECT * FROM polish_history LIMIT 15;
+2025-05-28 12:29:52 CEST LOG:  checkpoint starting: time
+2025-05-28 12:29:55 CEST LOG:  checkpoint complete: wrote 21 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=2.178 s, sync=0.404 s, total=2.701 s; sync files=22, longest=0.060 s, average=0.019 s; distance=276 kB, estimate=1243 kB; lsn=0/29D5E68, redo lsn=0/29D5E10
+2025-05-28 12:34:52 CEST LOG:  checkpoint starting: time
+2025-05-28 12:34:54 CEST LOG:  checkpoint complete: wrote 21 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=2.179 s, sync=0.426 s, total=2.697 s; sync files=15, longest=0.054 s, average=0.029 s; distance=119 kB, estimate=1130 kB; lsn=0/29F3C58, redo lsn=0/29F3C00
+2025-05-28 12:39:53 CEST LOG:  checkpoint starting: time
+2025-05-28 12:39:54 CEST LOG:  checkpoint complete: wrote 13 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.305 s, sync=0.189 s, total=1.570 s; sync files=6, longest=0.055 s, average=0.032 s; distance=30 kB, estimate=1020 kB; lsn=0/29FB618, redo lsn=0/29FB5C0
+2025-05-28 12:44:53 CEST LOG:  checkpoint starting: time
+2025-05-28 12:44:56 CEST LOG:  checkpoint complete: wrote 21 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=2.196 s, sync=0.416 s, total=2.718 s; sync files=26, longest=0.056 s, average=0.016 s; distance=280 kB, estimate=946 kB; lsn=0/2A41868, redo lsn=0/2A41810
+2025-05-28 12:49:53 CEST LOG:  checkpoint starting: time
+2025-05-28 12:49:58 CEST LOG:  checkpoint complete: wrote 40 buffers (0.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=4.255 s, sync=0.525 s, total=4.877 s; sync files=20, longest=0.130 s, average=0.027 s; distance=171 kB, estimate=869 kB; lsn=0/2A6C710, redo lsn=0/2A6C6B8

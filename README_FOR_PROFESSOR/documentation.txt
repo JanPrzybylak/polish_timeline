@@ -1,0 +1,119 @@
+# # Project Documentation: Historical Events Visualization and Categorization System
+
+## Project Purpose and Key Assumptions
+
+The goal of this project is to automate the process of collecting, classifying, and visualizing historical events from two major Polish cities: 
+Poznan and Warsaw. The idea is to extract data from structured historical sources available online, categorize these events using machine learning, 
+store everything in a PostgreSQL database, and present the results visually using Google Sheets. The system was designed with the assumption that 
+the source data is structured enough for scraping, that categorizing events can reveal patterns in each city’s history, and that automating the 
+workflow helps avoid repetitive manual tasks.
+
+## System Architecture Overview
+
+The entire project is organized into several clearly defined stages. It starts with web scraping using Scrapy spiders, each responsible for a 
+specific city. The collected data is then imported into a PostgreSQL database for centralized storage. A machine learning model is trained on 
+this data to classify events into thematic categories such as war, politics, or culture. Once the model is trained, it is used to automatically 
+assign categories to any new, uncategorized events. Finally, the structured and categorized data is exported to Google Sheets, where it is 
+summarized and visualized with charts for easy analysis.
+
+
+## Data Structure and Format
+
+Each event is stored with an auto-incremented ID, a text description, start and end dates, and a thematic category. 
+This structure allows for time-based sorting and theme-based grouping. A typical entry in CSV format might look like this: 
+an event titled "Establishment of a university" from the year 1364, categorized as "education".
+
+Example CSV row:
+
+```
+Id,Content,Start,End,Group
+1,"Establishment of a university",1364,1364,education
+```
+
+## Automation Workflow
+
+To streamline the whole process, a single script (auto_scrape_import_and_train.py) runs everything from data collection to classification. 
+It first launches the spiders to scrape data for Warsaw and Poznan, then imports the results into the database, trains the machine learning model, 
+and finally classifies any new events. Console messages are printed throughout to show the progress and confirm that each step has completed 
+successfully.
+
+Terminal output helps confirm successful execution of each stage:
+
+```
+Running spider: warsaw_history
+Running spider: poznan_history
+Running import_data.py
+Training ML model (category_classifier.py)
+Predicting and updating categories...
+All tasks completed.
+```
+
+## Google Sheets Integration
+
+To make the data easy to understand and share, it is exported to Google Sheets for visualization. 
+For each city, the script creates sheets that include raw event data, a summary of category counts, and a pie chart. 
+This gives a quick visual snapshot of each city’s historical profile. The script uses a Google Service Account to authenticate 
+and handles everything from sheet creation and cleanup to data upload and chart generation.
+
+### Actions Performed by the Script
+
+* Authenticates via a Google Service Account.
+* Uploads CSV data to a new sheet.
+* Counts events by category and adds a summary sheet.
+* Creates a pie chart from the summary sheet.
+
+### What You See in Google Sheets
+
+For each city, the following sheets are generated:
+
+* `CityName` (e.g., `Warsaw`, `Poznan`)
+* `CityName_Category` (e.g., `Warsaw_Category`)
+* `CityName_Chart` (e.g., `Warsaw_Chart`)
+
+Category summary format:
+
+```
+Category     Count
+religion     4
+politics    12
+other       93
+science      8
+war         17
+culture     17
+sports      16
+```
+
+### Technologies Used
+
+This project combines several modern tools and libraries. Scrapy is used for web scraping, PostgreSQL for structured data storage, 
+psycopg2 for database access, scikit-learn for training the machine learning model, and gspread along with the Google Sheets API for visualization. 
+CSV files are used for local data exchange and backup during the process.
+
+## Key Components of the Codebase
+
+The codebase is split into well-organized components. Each city has its own Scrapy spider, which outputs JSON files. 
+A dedicated script imports these JSON files into the database. Another script trains a Logistic Regression model, 
+saving both the model and the TF-IDF vectorizer for reuse. A prediction script loads the saved model and applies it to uncategorized events, 
+updating the database accordingly. Finally, another script reads CSV exports and pushes the data to Google Sheets, 
+creating summaries and charts in a few clicks.
+
+### Feedback & Debugging
+
+To make debugging easier, the project includes informative console outputs at every major step. Whether it’s running a spider, 
+training the model, importing data, or generating a chart, each step prints a message indicating what’s happening. 
+This transparency makes it easier to catch errors or confirm that everything is running smoothly. 
+
+Example:
+
+```
+Processing data for: Poznan
+Creating data sheet for Poznan...
+Creating category sheet for Poznan...
+Creating chart for Poznan...
+```
+
+## Final Remarks
+
+The project provides a full end-to-end solution for transforming raw historical records into insightful, categorized visualizations. 
+Because of its modular design, each part can be extended or replaced independently. Future improvements could include scheduled runs via cron jobs, 
+more sophisticated ML models, or even a web-based interface that allows human users to adjust or override classifications manually.

@@ -1,0 +1,33 @@
+# Byte-compiled / cache files
+
+**pycache**/
+_.py[cod]
+_.so
+
+# Virtual environments
+
+venv/
+env/
+
+# Development environments and IDEs
+
+.idea/
+.vscode/
+
+# OS / system files
+
+.DS_Store
+Thumbs.db
+
+google_sheet/credentials.json
+
+# Git
+
+.git/
+.gitignore
+
+# Other common build-time junk
+
+_.log
+_.db
+\*.sqlite3
