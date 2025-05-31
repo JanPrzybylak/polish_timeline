@@ -21,7 +21,7 @@ A comprehensive data pipeline that collects, processes, and visualizes historica
 1. **Clone the repository**
    ```bash
    git clone https://github.com/JanPrzybylak/polish_timeline.git
-   cd polish-history-data
+   cd polish_timeline
    ```
 
 2. **Set up credentials** (if using Google Sheets)
