@@ -20,7 +20,7 @@ gc = gspread.authorize(creds)
 sheets_service = build("sheets", "v4", credentials=creds)
 
 # Spreadsheet ID to update
-SPREADSHEET_ID = "1YHxfgtq5e9R-t_c4D9RrMPbb8mtq50zcjPgyRK-JxUM"
+SPREADSHEET_ID = "YOUR_ID"
 spreadsheet = gc.open_by_key(SPREADSHEET_ID)
 
 # Cities and corresponding CSV files
