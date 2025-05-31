@@ -20,3 +20,37 @@ This project scrapes historical event data from two Polish cities (Warsaw and Po
 ```bash
 git clone https://github.com/yourusername/yourrepo.git
 cd yourrepo
+
+2. Prepare Google Sheets credentials
+
+    Place your Google Sheets API credentials file at google_sheet/credentials.json.
+
+    Make sure this file exists before running (see .gitignore — this file is not pushed for security).
+
+If you don’t have credentials or don’t use Google Sheets integration, this can be skipped.
+3. Build and start the project with Docker Compose
+
+docker compose up --build
+
+This command will:
+
+    Start a PostgreSQL 17 database with your configured user and database.
+
+    Run the scraping and import scripts to fetch and load data into the database.
+
+    Train the ML model (if needed).
+
+    Launch the Flask web server exposing the timeline app on port 5000.
+
+4. Access the web application
+
+Open your browser and go to:
+
+http://localhost:5000
+
+You should see the timeline visualization of historical events.
+Stopping the application
+
+Press Ctrl+C in the terminal running Docker Compose, or run:
+
+docker compose down
