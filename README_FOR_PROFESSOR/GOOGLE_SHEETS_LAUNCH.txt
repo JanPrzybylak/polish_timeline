@@ -31,6 +31,8 @@ Copy the spreadsheet ID — it’s the part of the URL after /d/, for example:
 
 https://docs.google.com/spreadsheets/d/**-IT MUST TO BE HERE-**/edit#gid=0
 
+and put this part to srcipt SPREADSHEET_ID = "-HERE-"
+
 In the top-right corner, click the Share (blue button)
 
 At the bottom of the pop-up, click "Share with people and groups"
