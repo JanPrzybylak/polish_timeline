@@ -52,3 +52,4 @@ A comprehensive data pipeline that collects, processes, and visualizes historica
   - Ensure port 5000 is available
   - Verify Google Sheets credentials path if used
   - Check Docker has sufficient resources
+  - If some library is missing, install it manually using pip
